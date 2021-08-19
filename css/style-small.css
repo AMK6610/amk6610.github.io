@@ -89,17 +89,17 @@
 
 /* Main */
 
-	#main > section > .container {
+	main > section > .container {
 		padding: 2em 0 0 0;
 	}
 
 /* Footer */
 
-	#footer {
+	footer {
 		text-align: center;
 	}
 
-		#footer .copyright li {
+		footer .copyright li {
 			border-left: 0;
 			display: block;
 			line-height: 1.75em;
@@ -107,7 +107,7 @@
 			padding-left: 0;
 		}
 
-			#footer .copyright li:first-child {
+			footer .copyright li:first-child {
 				margin-top: 0;
 			}
 
