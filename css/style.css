@@ -12,6 +12,7 @@
 
 	body {
 		background: #fff;
+		direction: ltr;
 	}
 
 	.fa-scholar {
@@ -286,7 +287,7 @@
 			line-height: 2.75em;
 			pointer-events: none;
 			position: absolute;
-			right: 0;
+			/*right: 0;*/
 			text-align: center;
 			top: 0;
 			width: 2.75em;
@@ -331,7 +332,7 @@
 			font-size: 1em;
 			font-weight: 400;
 			padding-left: 2.4em;
-			padding-right: 0.75em;
+			padding-left: 0.75em;
 			position: relative;
 		}
 
@@ -579,20 +580,20 @@
 		ul.icons {
 			cursor: default;
 			list-style: none;
-			padding-left: 0;
+			text-align: center;
 		}
 
 			ul.icons li {
 				display: inline-block;
-				padding: 0 1em 0 0;
+				padding: 0 1.75em 0 0;
 			}
 
 				ul.icons li:last-child {
-					padding-right: 0 !important;
+					padding-left: 0 !important;
 				}
 
 				ul.icons li .icon:before {
-					font-size: 1.25em;
+					font-size: 2em;
 				}
 
 		ul.actions {
@@ -608,7 +609,7 @@
 			}
 
 				ul.actions li:last-child {
-					padding-right: 0;
+					padding-left: 0;
 				}
 
 			ul.actions.small li {
@@ -899,7 +900,7 @@
 
 		.features article .image {
 			display: inline-block;
-			padding-right: 2.5em;
+			padding-left: 2.5em;
 			vertical-align: middle;
 			width: 48%;
 		}
@@ -929,7 +930,7 @@
 		text-align: center;
 		top: 0;
 		width: 23em;
-		right: 0;
+		/*right: 0;*/
 	}
 
 		#header h1, #header h2, #header h3, #header h4, #header h5, #header h6 {
@@ -957,10 +958,10 @@
 			padding-bottom: 1em;
 		}
 
-			#header > header .avatar {
+			.avatar {
 				display: block;
 				margin: 0 auto 2.25em auto;
-				width: 8em;
+				width: 12em;
 			}
 
 			#header > header h1 {
@@ -1027,7 +1028,6 @@
 
 	#wrapper {
 		background: #fff;
-		padding-right: 23em;
 	}
 
 /* Main */
@@ -1038,24 +1038,14 @@
 
 		#main > section > .container {
 			padding: 6em 0 4em 0;
+			margin-left: auto;
+			margin-right: auto;
+			width: 70%;
 		}
 
 		#main > section:first-child {
 			border-top: 0;
 		}
-
-/* One */
-
-	#one:before {
-		background-image: url("../images/banner.jpg");
-		background-position: top right;
-		background-repeat: no-repeat;
-		background-size: cover;
-		content: '';
-		display: block;
-		height: 15em;
-		width: 100%;
-	}
 
 /* Footer */
 

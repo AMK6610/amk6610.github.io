@@ -14,33 +14,6 @@
 			medium: { media: '(max-width: 1024px)', href: 'css/style-medium.css', containers: '85%!' },
 			small: { media: '(max-width: 736px)', href: 'css/style-small.css', containers: '90%!', grid: { gutters: ['1.25em', 0] } },
 			xsmall: { media: '(max-width: 480px)', href: 'css/style-xsmall.css' }
-		},
-		plugins: {
-			layers: {
-				config: {
-					mode: 'transform'
-				},
-				titleBar: {
-					breakpoints: 'medium',
-					width: '100%',
-					height: 44,
-					position: 'top-left',
-					side: 'top',
-					html: '<span class="toggle" data-action="toggleLayer" data-args="sidePanel"></span><span class="title" data-action="copyText" data-args="logo"></span>'
-				},
-				sidePanel: {
-					breakpoints: 'medium',
-					hidden: true,
-					width: { small: 275, medium: '20em' },
-					height: '100%',
-					animation: 'pushX',
-					position: 'top-right',
-					side: 'right',
-					orientation: 'vertical',
-					clickToHide: true,
-					html: '<div data-action="moveElement" data-args="header"></div>'
-				}
-			}
 		}
 	});
 
