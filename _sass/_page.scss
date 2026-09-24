@@ -49,10 +49,15 @@
 }
 
 .page__content {
+  max-width: $reading-measure;
 
   h2 {
-    padding-bottom: 0.5em;
+    padding-bottom: 0.3em;
     border-bottom: 1px solid $border-color;
+  }
+
+  h2:first-child {
+    margin-top: 0;
   }
 
   p, li, dl {
@@ -227,7 +232,7 @@
 
 .page__meta {
   margin-top: 2em;
-  color: mix(#fff, $gray, 25%);
+  color: var(--muted-text-color);
   font-family: $sans-serif;
   font-size: $type-size-6;
 

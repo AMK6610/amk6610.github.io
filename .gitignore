@@ -1,6 +1,16 @@
 # Ignore the contents of the _site directory
 _site/
 
+# Jekyll build caches
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Local `bundle install --path vendor/bundle` output.
+# Anchored to the repo root so _sass/vendor/ stays tracked.
+/.bundle/
+/vendor/
+
 # Ignore the directory for local files during development
 local/
 

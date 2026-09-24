@@ -1,0 +1,17 @@
+# Local development overrides, layered on top of _config.yml:
+#
+#   bundle exec jekyll serve --config _config.yml,_config.dev.yml
+#
+# Note that --config replaces the default config lookup rather than adding to
+# it, so _config.yml has to be listed first.
+#
+# Why this file is needed: _includes/base_path derives every stylesheet,
+# script, image and nav URL from site.url, which _config.yml pins to
+# https://amk6610.github.io. Without the empty url below, a local build would
+# pull its CSS and JS from the live site and none of your edits would show up.
+url: ""
+baseurl: ""
+
+# Keep local page views out of the production Analytics property.
+analytics:
+  provider: false

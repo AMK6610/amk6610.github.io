@@ -10,7 +10,7 @@
 locale                   : "en-US"
 title                    : "Amir Karimi"
 title_separator          : "-"
-name                     : &name "Amir Mohammad Karimi Mamaghan"
+name                     : &name "Amir Karimi"
 description              : &description "PhD Student @ KTH"
 url                      : https://amk6610.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -22,11 +22,16 @@ repository               : "amk6610/amk6610.github.io"
 author:
   # Biographic information
   avatar           : "avatar.jpg"
-  name             : "Amir Mohammad Karimi Mamaghan"
+  name             : "Amir Karimi"
+  # Names you appear under in publication author lists. The Publications page
+  # shows authors exactly as published and bolds any of these.
+  name_aliases     :
+    - "Amir Mohammad Karimi Mamaghan"
   pronouns         : # example: "she/her"  
   bio              : "PhD Student @ KTH"
   location         : "Stockholm"
-  employer         : "KTH Royal Institute of Technology"
+  employer         : "KTH"
+  employer_url     : "https://www.kth.se/profile/amkm"
   uri              : # URL
   email            : "amkm@kth.se" 
 
@@ -168,6 +173,7 @@ exclude:
   - log
   - node_modules
   - package.json
+  - serve.bat
   - tmp
   - vendor
 keep_files:

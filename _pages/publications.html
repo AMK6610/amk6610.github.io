@@ -1,0 +1,25 @@
+---
+layout: archive
+title: "Publications"
+permalink: /publications/
+author_profile: true
+---
+
+{% include base_path %}
+
+{% if site.author.googlescholar %}
+<p class="publications__intro">A full list is also available on <a href="{{ site.author.googlescholar }}">my Google Scholar profile</a>.</p>
+{% endif %}
+
+<div class="publications">
+{% assign publications = site.publications | sort: "date" | reverse %}
+{% assign last_year = "" %}
+{% for post in publications %}
+{% assign year = post.date | date: "%Y" %}
+{% if year != last_year %}
+<h2 class="publications__year">{{ year }}</h2>
+{% assign last_year = year %}
+{% endif %}
+{% include archive-single-publication.html %}
+{% endfor %}
+</div>

@@ -20,14 +20,56 @@ See more info at https://academicpages.github.io/
 
 ## Running Locally
 
-When you are initially working your website, it is very useful to be able to preview the changes locally before pushing them to GitHub. To work locally you will need to:
+### One-time setup
 
-1. Clone the repository and made updates as detailed above.
-1. Make sure you have ruby-dev, bundler, and nodejs installed: `sudo apt install ruby-dev ruby-bundler nodejs`
-1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
-1. Run `jekyll serve -l -H localhost` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change.
+**Ruby version matters.** This site is built by GitHub Pages' own Jekyll, which
+the `github-pages` gem mirrors. That gem set is pinned to Jekyll 3.x and needs
+**Ruby 3.1.x** — Ruby 3.2 removed `Object#tainted?`, which the `pathutil`
+dependency still calls, and Ruby 3.4 dropped `csv`/`base64`/`bigdecimal` from
+the default gems. Newer Ruby will fail during `bundle exec jekyll serve`.
 
-If you are running on Linux it may be necessary to install some additional dependencies prior to being able to run locally: `sudo apt install build-essentials gcc make`
+- **Windows:** install [Ruby+Devkit 3.1.x (x64)](https://rubyinstaller.org/downloads/)
+  from RubyInstaller. Pick a `Ruby+Devkit` build, not the plain one — some gems
+  (`eventmachine`, `wdm`) compile from source. At the end of the installer let it
+  run `ridk install` and choose option 3 (MSYS2 and MINGW development toolchain).
+- **macOS / Linux:** use a version manager, e.g. `rbenv install 3.1.6 && rbenv local 3.1.6`.
+  On Debian/Ubuntu you also need `sudo apt install build-essential`.
+
+Then, from the repository root:
+
+```bash
+gem install bundler
+bundle install
+```
+
+### Serving the site
+
+```bash
+bundle exec jekyll serve --config _config.yml,_config.dev.yml
+```
+
+On Windows you can just run `serve.bat`, which wraps the same command.
+
+The site is then at <http://localhost:4000>. Jekyll watches for changes and
+rebuilds automatically; refresh the browser to see them. Add `--livereload` to
+refresh automatically, though that relies on EventMachine and is occasionally
+flaky on Windows.
+
+**Always pass both config files.** `--config` replaces the default config lookup
+instead of adding to it. `_config.dev.yml` blanks out `url`, which `_config.yml`
+pins to the production domain — without it, `_includes/base_path` would point
+every stylesheet, script and image at the live site and your local edits would
+not show up. It also switches off Analytics locally.
+
+### Rebuilding the JavaScript bundle
+
+`assets/js/main.min.js` is committed, so you only need this if you edit
+`assets/js/_main.js` or anything in `assets/js/plugins/`. It needs Node:
+
+```bash
+npm install
+npm run build:js
+```
 
 # Maintenance 
 

@@ -65,7 +65,9 @@
 /* Default notice */
 
 .notice {
-  @include notice($light-gray);
+  /* The mixin runs mix() on this, so it must be a literal colour, not the
+     var()-backed $light-gray. This is $light-gray's old computed value. */
+  @include notice(mix(#fff, $gray, 50%));
 }
 
 /* Primary notice */

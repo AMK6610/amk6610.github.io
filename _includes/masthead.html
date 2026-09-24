@@ -13,11 +13,35 @@
               {% else %}
               {% assign domain = base_path %}
             {% endif %}
-            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
+            <li class="masthead__menu-item{% if link.url != '/' and page.url contains link.url %} masthead__menu-item--active{% endif %}"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
         </ul>
         <ul class="hidden-links hidden"></ul>
       </nav>
     </div>
+
+    <button type="button" id="theme-toggle" class="theme-toggle"
+            title="Toggle between dark and light theme"
+            aria-label="Toggle between dark and light theme">
+      <i class="fa-solid fa-sun theme-toggle__icon theme-toggle__icon--to-light" aria-hidden="true"></i>
+      <i class="fa-solid fa-moon theme-toggle__icon theme-toggle__icon--to-dark" aria-hidden="true"></i>
+    </button>
   </div>
 </div>
+
+{% comment %}
+  Kept on one statement per line without // comments, because the `compress`
+  layout collapses newlines in production builds.
+{% endcomment %}
+<script>
+  (function () {
+    var toggle = document.getElementById('theme-toggle');
+    if (!toggle) { return; }
+    toggle.addEventListener('click', function () {
+      var root = document.documentElement;
+      var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      try { window.localStorage.setItem('theme', next); } catch (e) {}
+    });
+  })();
+</script>

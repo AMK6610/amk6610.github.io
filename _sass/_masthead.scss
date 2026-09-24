@@ -4,7 +4,7 @@
 
 .masthead {
   position: fixed;
-  background: white;
+  background: var(--background-color);
   border-bottom: 1px solid $border-color;
   height: $masthead-height;
   top: 0;
@@ -19,8 +19,14 @@
   &__inner-wrap {
     @include container;
     @include clearfix;
-    padding: 1em 1em 1em;
+    position: relative;
+    /* right padding reserves room for the absolutely positioned theme toggle,
+       and keeps the greedy-nav overflow button clear of it */
+    padding: 0.75em 3.75em 0.75em 1em;
     font-family: $sans-serif-narrow;
+    /* the masthead is a fixed $masthead-height, so it must not inherit the
+       body's looser line-height */
+    line-height: 1.2;
 
     @include breakpoint($x-large) {
       max-width: $x-large;
@@ -50,9 +56,76 @@
   display: block;
   list-style-type: none;
   white-space: nowrap;
+  font-size: $type-size-6;
 
   &--lg {
     padding-right: 2em;
+    font-size: $type-size-5;
     font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* these need to outrank the generic `.greedy-nav a` colour in _navigation.scss,
+   which is imported after this file */
+.masthead .masthead__menu-item--lg a,
+.masthead .masthead__menu-item--active a {
+  color: $text-color;
+}
+
+.masthead .masthead__menu-item--active a {
+  font-weight: 600;
+}
+
+
+/*
+   Dark / light theme toggle
+   ========================================================================== */
+
+.theme-toggle {
+  position: absolute;
+  top: 50%;
+  right: 1em;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  width: 2.25em;
+  height: 2.25em;
+  padding: 0;
+  font-size: $type-size-6;
+  line-height: 1;
+  color: $muted-text-color;
+  background-color: transparent;
+  border: 1px solid $border-color;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-transition: $global-transition;
+          transition: $global-transition;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+    border-color: $accent-color;
+  }
+}
+
+/* The sun means "switch to light" and shows while dark is active, which is
+   also the no-JS default since no data-theme attribute is set then. */
+.theme-toggle__icon--to-dark {
+  display: none;
+}
+
+[data-theme="light"] {
+  .theme-toggle__icon--to-light {
+    display: none;
+  }
+
+  .theme-toggle__icon--to-dark {
+    display: block;
   }
 }

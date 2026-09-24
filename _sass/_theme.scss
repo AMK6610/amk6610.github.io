@@ -1,0 +1,50 @@
+/* ==========================================================================
+   THEME TOKENS
+   ==========================================================================
+
+   Dark is the default. The toggle in the masthead sets data-theme="light" on
+   <html> (and an inline script in _includes/head/custom.html restores the
+   stored choice before first paint, so there's no flash).
+
+   These custom properties are what the Sass colour variables in
+   _variables.scss resolve to, so `color: $text-color` throughout the theme is
+   already theme-aware. Anything that needs a literal colour at build time,
+   such as Sass mix()/rgba() calls, must not use them.
+   ========================================================================== */
+
+:root {
+  --background-color      : #0f1419;
+  --surface-color         : #161c23;
+  --surface-hover-color   : #1f2731;
+  --text-color            : #e3e8ee;
+  --muted-text-color      : #96a1ae;
+  --border-color          : #252d37;
+  --accent-color          : #6cb6ff;
+  --link-color            : var(--accent-color);
+  --link-color-hover      : #a2d0ff;
+  --code-background-color : #161c23;
+  --code-text-color       : #b6c2cf;
+  --code-comment-color    : #8b98a5;
+  --github-icon-color     : #e3e8ee;
+
+  /* makes scrollbars, form controls and the like follow the theme */
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --background-color      : #ffffff;
+  --surface-color         : #f8f9fb;
+  --surface-hover-color   : #eef1f5;
+  --text-color            : #22272e;
+  --muted-text-color      : #76797d;
+  --border-color          : #e4e7eb;
+  --accent-color          : #1a5fb4;
+  --link-color            : var(--accent-color);
+  --link-color-hover      : #134888;
+  --code-background-color : #f6f8fa;
+  --code-text-color       : #586e75;
+  --code-comment-color    : #93a1a1;
+  --github-icon-color     : #171516;
+
+  color-scheme: light;
+}

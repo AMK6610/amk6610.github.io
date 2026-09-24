@@ -8,10 +8,17 @@ html {
   /* apply a natural box layout model to all elements */
   box-sizing: border-box;
   background-color: $background-color;
-  font-size: 16px;
+
+  /* the whole em-based type scale hangs off this; media queries always
+     resolve against the initial 16px, so stepping it up here is safe */
+  font-size: #{$doc-font-size}px;
 
   @include breakpoint($medium) {
-    font-size: 18px;
+    font-size: #{$doc-font-size + 1}px;
+  }
+
+  @include breakpoint($x-large) {
+    font-size: #{$doc-font-size + 2}px;
   }
 
   -webkit-text-size-adjust: 100%;
@@ -25,13 +32,13 @@ body { margin: 0; }
 /* Selected elements */
 
 ::-moz-selection {
-  color: #fff;
-  background: #000;
+  color: var(--background-color);
+  background: var(--text-color);
 }
 
 ::selection {
-  color: #fff;
-  background: #000;
+  color: var(--background-color);
+  background: var(--text-color);
 }
 
 /* Display HTML5 elements in IE6-9 and FF3 */

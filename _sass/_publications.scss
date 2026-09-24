@@ -1,0 +1,103 @@
+/* ==========================================================================
+   PUBLICATIONS
+   ========================================================================== */
+
+.publications__intro {
+  max-width: $reading-measure;
+  margin: 0 0 2em;
+  color: $muted-text-color;
+  font-size: $type-size-6;
+}
+
+.publications {
+  max-width: $reading-measure;
+}
+
+.publications__year {
+  margin: 2.5em 0 1.25em;
+  padding-bottom: 0.4em;
+  font-size: $type-size-6;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $muted-text-color;
+  border-bottom: 1px solid $border-color;
+
+  &:first-child {
+    margin-top: 0.5em;
+  }
+}
+
+.publication {
+  margin-bottom: 1.75em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.publication__title {
+  margin: 0 0 0.3em;
+  font-size: $type-size-5;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.publication .publication__title a {
+  color: $text-color;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: $global-transition;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+    text-decoration: none;
+    border-bottom-color: $accent-color;
+  }
+}
+
+.publication__authors {
+  margin: 0 0 0.2em;
+  font-size: $type-size-6;
+  line-height: 1.5;
+  color: $muted-text-color;
+}
+
+.publication__author--self {
+  font-weight: 600;
+  color: $text-color;
+}
+
+.publication__venue {
+  margin: 0;
+  font-size: $type-size-6;
+  font-style: italic;
+  color: $muted-text-color;
+}
+
+.publication__links {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.65em 0 0;
+}
+
+.publications .publication__link {
+  margin: 0 0.4em 0.4em 0;
+  padding: 0.15em 0.75em;
+  font-size: $type-size-7;
+  font-weight: 500;
+  line-height: 1.7;
+  color: $muted-text-color;
+  text-decoration: none;
+  border: 1px solid $border-color;
+  border-radius: 2em;
+  transition: $global-transition;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+    text-decoration: none;
+    border-color: $accent-color;
+  }
+}
