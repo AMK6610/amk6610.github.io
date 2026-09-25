@@ -11,10 +11,20 @@ author_profile: true
 <p class="publications__intro">A full list is also available on <a href="{{ site.author.googlescholar }}">my Google Scholar profile</a>.</p>
 {% endif %}
 
-<div class="publications">
 {% assign publications = site.publications | sort: "date" | reverse %}
+{% assign preprints = publications | where: "status", "preprint" %}
+{% assign published = publications | where_exp: "item", "item.status != 'preprint'" %}
+
+<div class="publications">
+{% if preprints.size > 0 %}
+<h2 class="publications__year">Preprints</h2>
+{% for post in preprints %}
+{% include archive-single-publication.html %}
+{% endfor %}
+{% endif %}
+
 {% assign last_year = "" %}
-{% for post in publications %}
+{% for post in published %}
 {% assign year = post.date | date: "%Y" %}
 {% if year != last_year %}
 <h2 class="publications__year">{{ year }}</h2>
@@ -22,4 +32,13 @@ author_profile: true
 {% endif %}
 {% include archive-single-publication.html %}
 {% endfor %}
+
+{% assign with_equal = publications | where_exp: "item", "item.equal_contribution" %}
+{% assign with_shared_last = publications | where_exp: "item", "item.shared_last" %}
+{% if with_equal.size > 0 or with_shared_last.size > 0 %}
+<p class="publications__footnote">
+{% if with_equal.size > 0 %}<sup>*</sup>Equal contribution.{% endif %}
+{% if with_shared_last.size > 0 %}<sup>&dagger;</sup>Shared last authorship.{% endif %}
+</p>
+{% endif %}
 </div>

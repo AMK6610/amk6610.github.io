@@ -69,6 +69,22 @@
   color: $text-color;
 }
 
+.publication__marker {
+  margin-left: 0.05em;
+}
+
+.publications__footnote {
+  margin: 2.5em 0 0;
+  padding-top: 0.75em;
+  font-size: $type-size-7;
+  color: $muted-text-color;
+  border-top: 1px solid $border-color;
+
+  sup {
+    margin-right: 0.15em;
+  }
+}
+
 .publication__venue {
   margin: 0;
   font-size: $type-size-6;

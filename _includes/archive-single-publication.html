@@ -18,6 +18,8 @@
   {% comment %}
     `authors` is a list of names as published, and is shown as-is. Entries
     matching site.author.name or one of site.author.name_aliases are bolded.
+    Names listed in `equal_contribution` get a * and those in `shared_last` a †;
+    _pages/publications.html prints the matching footnote.
     A legacy `authors:` string still renders, since Liquid's for tag yields a
     non-enumerable value once, as a single item.
   {% endcomment %}
@@ -29,6 +31,8 @@
         {%- else -%}
           {{ author }}
         {%- endif -%}
+        {%- if post.equal_contribution contains author -%}<sup class="publication__marker">*</sup>{%- endif -%}
+        {%- if post.shared_last contains author -%}<sup class="publication__marker">&dagger;</sup>{%- endif -%}
         {%- unless forloop.last %}, {% endunless -%}
       {%- endfor -%}
     </p>

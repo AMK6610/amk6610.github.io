@@ -16,6 +16,9 @@ authors:
   - "Kaitlin Maile"
   - "Johannes von Oswald"
   - "Stefan Bauer"
+equal_contribution:
+  - "Aleena Siji"
+  - "Amir Mohammad Karimi Mamaghan"
 openreview: "https://openreview.net/forum?id=M9inQg4Fz0"
 arxiv: "https://arxiv.org/abs/2602.21750"
 ---
